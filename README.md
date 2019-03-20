@@ -1,0 +1,2 @@
+# mimoserver
+GraphQL Mimo server
