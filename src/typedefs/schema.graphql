@@ -1,0 +1,19 @@
+type Profile {
+  id: String
+  username: String
+  bio: String
+}
+
+type Query {
+  sources: [String]
+  profile(username: String): Profile
+}
+
+type Mutation {
+  indexProfile(id: String): [String]
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
