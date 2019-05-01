@@ -1,8 +1,8 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-micro');
 const typeDefs = require('./src/typedefs/index.js');
-const loadDB = require('./src/db.js');
+const initResolvers = require('./src/resolvers.js');
 
-const resolvers = loadDB();
+const resolvers = initResolvers();
 
 const server = new ApolloServer({ typeDefs, resolvers });
 module.exports = server.createHandler();

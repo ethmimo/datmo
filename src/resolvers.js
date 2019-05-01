@@ -1,11 +1,12 @@
+const webdb = require('./db.js')
 
-const initResolvers = webdb => {
+const initResolvers = () => {
   const resolvers = {
     Query: {
       async profile(parent, args, context) {
         await webdb.open()
         const profile = await webdb.profiles.get('username', args.username)
-        return Object.entries(profile);
+        return profile;
       },
       async sources(parent, args, context) {
         await webdb.open()
@@ -20,16 +21,12 @@ const initResolvers = webdb => {
       }
     },
     Profile: {
-      id(profile) {
-        return profile.getRecordURL();
-      },
-      username(profile) {
-        return profile.username;
-      }
-    }
+      username: (root) => root.username,
+      bio: (root) => root.bio,
+    },
   }
 
   return resolvers;
 };
 
-module.exports = setupResolvers;
+module.exports = initResolvers;

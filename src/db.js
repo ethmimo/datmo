@@ -1,7 +1,6 @@
 const DatArchive = require('node-dat-archive')
 const WebDB = require('@beaker/webdb')
 const webdb = new WebDB('./webdb-example', {DatArchive})
-const initResolvers = require('./resolvers.js')
 
 webdb.define('profiles', {
 
@@ -14,10 +13,5 @@ webdb.define('profiles', {
     '/profiles/*.json'
   ]
 })
-
-async function loadDB() {
-  await webdb.open()
-  return initResolvers(webdb)
-}
 
 module.exports = webdb;

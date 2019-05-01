@@ -1,11 +1,10 @@
 type Profile {
-  id: String
   username: String
   bio: String
 }
-
 type Query {
   sources: [String]
+  index(id: String): [String]
   profile(username: String): Profile
 }
 
