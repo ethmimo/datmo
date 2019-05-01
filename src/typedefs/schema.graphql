@@ -4,12 +4,11 @@ type Profile {
 }
 type Query {
   sources: [String]
-  index(id: String): [String]
   profile(username: String): Profile
 }
 
 type Mutation {
-  indexProfile(id: String): [String]
+  index(id: String): [String]
 }
 
 schema {

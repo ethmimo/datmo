@@ -4,5 +4,10 @@ const initResolvers = require('./src/resolvers.js');
 
 const resolvers = initResolvers();
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true
+});
 module.exports = server.createHandler();

@@ -12,7 +12,9 @@ const initResolvers = () => {
         await webdb.open()
         const urls = await webdb.listSources()
         return urls;
-      },
+      }
+    },
+    Mutation: {
       async index(parent, args, context) {
         await webdb.open()
         await webdb.indexArchive(args.id)
@@ -23,7 +25,7 @@ const initResolvers = () => {
     Profile: {
       username: (root) => root.username,
       bio: (root) => root.bio,
-    },
+    }
   }
 
   return resolvers;
